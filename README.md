@@ -54,7 +54,3 @@ install & manage versions.
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/akhercha/asdf-starknet-foundry/graphs/contributors)!
-
-# License
-
-See [LICENSE](LICENSE) © [Adel](https://github.com/akhercha/)
