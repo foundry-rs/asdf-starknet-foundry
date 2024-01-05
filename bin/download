@@ -8,6 +8,8 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=./lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
+download_universal_sierra_compiler
+
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
 # TODO: Adapt this to proper extension and adapt extracting strategy.
