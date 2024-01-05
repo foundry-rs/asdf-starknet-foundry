@@ -33,6 +33,11 @@ list_all_versions() {
 	list_github_tags
 }
 
+download_universal_sierra_compiler() {
+  #TODO: change to master branch
+  curl -L https://raw.githubusercontent.com/software-mansion/universal-sierra-compiler/war-in/installation-script/scripts/install.sh | sh
+}
+
 download_release() {
 	local version filename url
 	version="$1"
