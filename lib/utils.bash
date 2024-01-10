@@ -33,6 +33,10 @@ list_all_versions() {
 	list_github_tags
 }
 
+download_universal_sierra_compiler() {
+  curl -L https://raw.githubusercontent.com/software-mansion/universal-sierra-compiler/master/scripts/install.sh | sh
+}
+
 download_release() {
 	local version filename url
 	version="$1"
