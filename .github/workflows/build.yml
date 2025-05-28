@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - nightly-version-support # TODO: Remove after testing
   pull_request:
 
 jobs:
