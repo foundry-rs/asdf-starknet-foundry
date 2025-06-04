@@ -22,7 +22,7 @@ jobs:
         with:
           command: snforge --version && sncast --version
 
-      - name: Test nightly
+      - name: Test latest nightly
         uses: asdf-vm/actions/plugin-test@v3
         with:
           version: latest:nightly
