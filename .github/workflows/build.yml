@@ -8,7 +8,7 @@ on:
 
 jobs:
   plugin_test:
-    name: asdf plugin test
+    name: Test ${{ matrix.os }}
     strategy:
       matrix:
         os:
@@ -16,7 +16,19 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - name: asdf_plugin_test
-        uses: asdf-vm/actions/plugin-test@v2
+      - name: Test latest
+        uses: asdf-vm/actions/plugin-test@v3
         with:
           command: snforge --version && sncast --version
+
+      - name: Test latest nightly
+        uses: asdf-vm/actions/plugin-test@v3
+        with:
+          version: latest:nightly
+          command: snforge --version | grep "nightly" && sncast --version | grep "nightly"
+
+      - name: Test nightly-2025-06-18
+        uses: asdf-vm/actions/plugin-test@v3
+        with:
+          version: nightly-2025-06-18
+          command: snforge --version | grep "snforge 0.45.0+nightly-2025-06-18" && sncast --version | grep "sncast 0.45.0+nightly-2025-06-18"

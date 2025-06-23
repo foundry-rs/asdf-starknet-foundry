@@ -41,6 +41,18 @@ Install specific version:
 asdf install starknet-foundry 0.8.2
 ```
 
+Install latest nightly version:
+
+```shell
+asdf install starknet-foundry latest:nightly
+```
+
+Install specific nightly version:
+
+```shell
+asdf install starknet-foundry nightly-2025-06-18
+```
+
 Set a version globally (in your `~/.tool-versions` file):
 
 ```shell

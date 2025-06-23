@@ -3,6 +3,7 @@
 set -euo pipefail
 
 GH_REPO="https://github.com/foundry-rs/starknet-foundry"
+GH_NIGHTLIES_REPO="https://github.com/software-mansion-labs/starknet-foundry-nightlies"
 TOOL_NAME="starknet-foundry"
 TOOL_TEST="snforge --version && sncast --version"
 
@@ -37,6 +38,12 @@ download_universal_sierra_compiler() {
   curl -L https://raw.githubusercontent.com/software-mansion/universal-sierra-compiler/master/scripts/install.sh | sh
 }
 
+get_latest_nightly() {
+	git ls-remote --tags --refs "$GH_NIGHTLIES_REPO" |
+		grep -o 'refs/tags/.*' | cut -d/ -f3- |
+		sort_versions | tail -n1 | xargs echo
+}
+
 download_release() {
 	local version filename url
 	version="$1"
@@ -47,8 +54,13 @@ download_release() {
 
 	local repository tag
 
-	repository=$GH_REPO
-	tag="v$version"
+	if grep -q -E "nightly" <<<"$version"; then
+		repository=$GH_NIGHTLIES_REPO
+		tag=$version
+	else
+		repository=$GH_REPO
+		tag="v$version"
+	fi
 
 	local _tarball="starknet-foundry-${tag}-${_arch}.tar.gz"
 	url="${repository}/releases/download/${tag}/${_tarball}"
