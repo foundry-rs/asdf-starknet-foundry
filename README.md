@@ -50,7 +50,7 @@ asdf install starknet-foundry latest:nightly
 Install specific nightly version:
 
 ```shell
-asdf install starknet-foundry nightly-2025-05-22
+asdf install starknet-foundry nightly-2025-06-18
 ```
 
 Set a version globally (in your `~/.tool-versions` file):
