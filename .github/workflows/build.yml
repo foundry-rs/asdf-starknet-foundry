@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - nightly-version-support # TODO: Remove after testing
   pull_request:
 
 jobs:
@@ -27,3 +26,9 @@ jobs:
         with:
           version: latest:nightly
           command: snforge --version | grep "nightly" && sncast --version | grep "nightly"
+
+      - name: Test nightly-2025-06-18
+        uses: asdf-vm/actions/plugin-test@v3
+        with:
+          version: nightly-2025-06-18
+          command: snforge --version | grep "snforge 0.45.0+nightly-2025-06-18" && sncast --version | grep "sncast 0.45.0+nightly-2025-06-18"

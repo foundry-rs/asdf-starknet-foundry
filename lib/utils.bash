@@ -3,8 +3,7 @@
 set -euo pipefail
 
 GH_REPO="https://github.com/foundry-rs/starknet-foundry"
-# TODO: Update this to the correct repo for nightlies
-GH_NIGHTLIES_REPO="https://github.com/ddoktorski/starknet-foundry-nightlies"
+GH_NIGHTLIES_REPO="https://github.com/software-mansion-labs/starknet-foundry-nightlies"
 TOOL_NAME="starknet-foundry"
 TOOL_TEST="snforge --version && sncast --version"
 
